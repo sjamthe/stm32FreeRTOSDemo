@@ -1,32 +1,30 @@
-ARM GAS  /tmp/ccFKpU4h.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.syntax unified
-  15              		.file	"stm32f1xx_it.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.NMI_Handler,"ax",%progbits
-  20              		.align	2
-  21              		.global	NMI_Handler
-  22              		.thumb
-  23              		.thumb_func
-  25              	NMI_Handler:
-  26              	.LFB69:
-  27              		.file 1 "Src/stm32f1xx_it.c"
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_it.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.NMI_Handler,"ax",%progbits
+  16              		.align	1
+  17              		.global	NMI_Handler
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	NMI_Handler:
+  24              	.LFB71:
+  25              		.file 1 "Src/stm32f1xx_it.c"
    1:Src/stm32f1xx_it.c **** /* USER CODE BEGIN Header */
    2:Src/stm32f1xx_it.c **** /**
    3:Src/stm32f1xx_it.c ****   ******************************************************************************
@@ -58,11 +56,11 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
   29:Src/stm32f1xx_it.c **** /* Private typedef -----------------------------------------------------------*/
   30:Src/stm32f1xx_it.c **** /* USER CODE BEGIN TD */
   31:Src/stm32f1xx_it.c **** 
-ARM GAS  /tmp/ccFKpU4h.s 			page 2
-
-
   32:Src/stm32f1xx_it.c **** /* USER CODE END TD */
   33:Src/stm32f1xx_it.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 2
+
+
   34:Src/stm32f1xx_it.c **** /* Private define ------------------------------------------------------------*/
   35:Src/stm32f1xx_it.c **** /* USER CODE BEGIN PD */
   36:Src/stm32f1xx_it.c ****  
@@ -103,24 +101,11 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
   71:Src/stm32f1xx_it.c ****   */
   72:Src/stm32f1xx_it.c **** void NMI_Handler(void)
   73:Src/stm32f1xx_it.c **** {
-  28              		.loc 1 73 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33 0000 7047     		bx	lr
-  34              		.cfi_endproc
-  35              	.LFE69:
-  37 0002 00BF     		.section	.text.HardFault_Handler,"ax",%progbits
-  38              		.align	2
-  39              		.global	HardFault_Handler
-  40              		.thumb
-  41              		.thumb_func
-  43              	HardFault_Handler:
-  44              	.LFB70:
-ARM GAS  /tmp/ccFKpU4h.s 			page 3
-
-
+  26              		.loc 1 73 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
   74:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
   75:Src/stm32f1xx_it.c **** 
   76:Src/stm32f1xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
@@ -128,29 +113,47 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
   78:Src/stm32f1xx_it.c **** 
   79:Src/stm32f1xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
   80:Src/stm32f1xx_it.c **** }
+  31              		.loc 1 80 0
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE71:
+  36              		.section	.text.HardFault_Handler,"ax",%progbits
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 3
+
+
+  37              		.align	1
+  38              		.global	HardFault_Handler
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  42              		.fpu softvfp
+  44              	HardFault_Handler:
+  45              	.LFB72:
   81:Src/stm32f1xx_it.c **** 
   82:Src/stm32f1xx_it.c **** /**
   83:Src/stm32f1xx_it.c ****   * @brief This function handles Hard fault interrupt.
   84:Src/stm32f1xx_it.c ****   */
   85:Src/stm32f1xx_it.c **** void HardFault_Handler(void)
   86:Src/stm32f1xx_it.c **** {
-  45              		.loc 1 86 0
-  46              		.cfi_startproc
-  47              		@ Volatile: function does not return.
-  48              		@ args = 0, pretend = 0, frame = 0
-  49              		@ frame_needed = 0, uses_anonymous_args = 0
-  50              		@ link register save eliminated.
-  51              	.L3:
-  52 0000 FEE7     		b	.L3
-  53              		.cfi_endproc
-  54              	.LFE70:
-  56 0002 00BF     		.section	.text.MemManage_Handler,"ax",%progbits
-  57              		.align	2
-  58              		.global	MemManage_Handler
-  59              		.thumb
-  60              		.thumb_func
-  62              	MemManage_Handler:
-  63              	.LFB71:
+  46              		.loc 1 86 0
+  47              		.cfi_startproc
+  48              		@ Volatile: function does not return.
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  52              	.L3:
+  53 0000 FEE7     		b	.L3
+  54              		.cfi_endproc
+  55              	.LFE72:
+  57              		.section	.text.MemManage_Handler,"ax",%progbits
+  58              		.align	1
+  59              		.global	MemManage_Handler
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  63              		.fpu softvfp
+  65              	MemManage_Handler:
+  66              	.LFB73:
   87:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
   88:Src/stm32f1xx_it.c **** 
   89:Src/stm32f1xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
@@ -166,26 +169,28 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
   99:Src/stm32f1xx_it.c ****   */
  100:Src/stm32f1xx_it.c **** void MemManage_Handler(void)
  101:Src/stm32f1xx_it.c **** {
-  64              		.loc 1 101 0
-  65              		.cfi_startproc
-  66              		@ Volatile: function does not return.
-  67              		@ args = 0, pretend = 0, frame = 0
-  68              		@ frame_needed = 0, uses_anonymous_args = 0
-  69              		@ link register save eliminated.
-  70              	.L5:
-  71 0000 FEE7     		b	.L5
-  72              		.cfi_endproc
-  73              	.LFE71:
-  75 0002 00BF     		.section	.text.BusFault_Handler,"ax",%progbits
-  76              		.align	2
-ARM GAS  /tmp/ccFKpU4h.s 			page 4
+  67              		.loc 1 101 0
+  68              		.cfi_startproc
+  69              		@ Volatile: function does not return.
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              		@ link register save eliminated.
+  73              	.L5:
+  74 0000 FEE7     		b	.L5
+  75              		.cfi_endproc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 4
 
 
-  77              		.global	BusFault_Handler
-  78              		.thumb
-  79              		.thumb_func
-  81              	BusFault_Handler:
-  82              	.LFB72:
+  76              	.LFE73:
+  78              		.section	.text.BusFault_Handler,"ax",%progbits
+  79              		.align	1
+  80              		.global	BusFault_Handler
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu softvfp
+  86              	BusFault_Handler:
+  87              	.LFB74:
  102:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
  103:Src/stm32f1xx_it.c **** 
  104:Src/stm32f1xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
@@ -201,23 +206,25 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
  114:Src/stm32f1xx_it.c ****   */
  115:Src/stm32f1xx_it.c **** void BusFault_Handler(void)
  116:Src/stm32f1xx_it.c **** {
-  83              		.loc 1 116 0
-  84              		.cfi_startproc
-  85              		@ Volatile: function does not return.
-  86              		@ args = 0, pretend = 0, frame = 0
-  87              		@ frame_needed = 0, uses_anonymous_args = 0
-  88              		@ link register save eliminated.
-  89              	.L7:
-  90 0000 FEE7     		b	.L7
-  91              		.cfi_endproc
-  92              	.LFE72:
-  94 0002 00BF     		.section	.text.UsageFault_Handler,"ax",%progbits
-  95              		.align	2
-  96              		.global	UsageFault_Handler
-  97              		.thumb
-  98              		.thumb_func
- 100              	UsageFault_Handler:
- 101              	.LFB73:
+  88              		.loc 1 116 0
+  89              		.cfi_startproc
+  90              		@ Volatile: function does not return.
+  91              		@ args = 0, pretend = 0, frame = 0
+  92              		@ frame_needed = 0, uses_anonymous_args = 0
+  93              		@ link register save eliminated.
+  94              	.L7:
+  95 0000 FEE7     		b	.L7
+  96              		.cfi_endproc
+  97              	.LFE74:
+  99              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 100              		.align	1
+ 101              		.global	UsageFault_Handler
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 105              		.fpu softvfp
+ 107              	UsageFault_Handler:
+ 108              	.LFB75:
  117:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
  118:Src/stm32f1xx_it.c **** 
  119:Src/stm32f1xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
@@ -231,28 +238,30 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
  127:Src/stm32f1xx_it.c **** /**
  128:Src/stm32f1xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
  129:Src/stm32f1xx_it.c ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 5
+
+
  130:Src/stm32f1xx_it.c **** void UsageFault_Handler(void)
  131:Src/stm32f1xx_it.c **** {
- 102              		.loc 1 131 0
- 103              		.cfi_startproc
- 104              		@ Volatile: function does not return.
- 105              		@ args = 0, pretend = 0, frame = 0
- 106              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccFKpU4h.s 			page 5
-
-
- 107              		@ link register save eliminated.
- 108              	.L9:
- 109 0000 FEE7     		b	.L9
- 110              		.cfi_endproc
- 111              	.LFE73:
- 113 0002 00BF     		.section	.text.DebugMon_Handler,"ax",%progbits
- 114              		.align	2
- 115              		.global	DebugMon_Handler
- 116              		.thumb
- 117              		.thumb_func
- 119              	DebugMon_Handler:
- 120              	.LFB74:
+ 109              		.loc 1 131 0
+ 110              		.cfi_startproc
+ 111              		@ Volatile: function does not return.
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114              		@ link register save eliminated.
+ 115              	.L9:
+ 116 0000 FEE7     		b	.L9
+ 117              		.cfi_endproc
+ 118              	.LFE75:
+ 120              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	DebugMon_Handler
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 126              		.fpu softvfp
+ 128              	DebugMon_Handler:
+ 129              	.LFB76:
  132:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
  133:Src/stm32f1xx_it.c **** 
  134:Src/stm32f1xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
@@ -268,21 +277,11 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
  144:Src/stm32f1xx_it.c ****   */
  145:Src/stm32f1xx_it.c **** void DebugMon_Handler(void)
  146:Src/stm32f1xx_it.c **** {
- 121              		.loc 1 146 0
- 122              		.cfi_startproc
- 123              		@ args = 0, pretend = 0, frame = 0
- 124              		@ frame_needed = 0, uses_anonymous_args = 0
- 125              		@ link register save eliminated.
- 126 0000 7047     		bx	lr
- 127              		.cfi_endproc
- 128              	.LFE74:
- 130 0002 00BF     		.section	.text.TIM1_UP_IRQHandler,"ax",%progbits
- 131              		.align	2
- 132              		.global	TIM1_UP_IRQHandler
- 133              		.thumb
- 134              		.thumb_func
- 136              	TIM1_UP_IRQHandler:
- 137              	.LFB75:
+ 130              		.loc 1 146 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
  147:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
  148:Src/stm32f1xx_it.c **** 
  149:Src/stm32f1xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
@@ -290,6 +289,22 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
  151:Src/stm32f1xx_it.c **** 
  152:Src/stm32f1xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
  153:Src/stm32f1xx_it.c **** }
+ 135              		.loc 1 153 0
+ 136 0000 7047     		bx	lr
+ 137              		.cfi_endproc
+ 138              	.LFE76:
+ 140              		.section	.text.TIM1_UP_IRQHandler,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	TIM1_UP_IRQHandler
+ 143              		.syntax unified
+ 144              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 6
+
+
+ 145              		.thumb_func
+ 146              		.fpu softvfp
+ 148              	TIM1_UP_IRQHandler:
+ 149              	.LFB77:
  154:Src/stm32f1xx_it.c **** 
  155:Src/stm32f1xx_it.c **** /******************************************************************************/
  156:Src/stm32f1xx_it.c **** /* STM32F1xx Peripheral Interrupt Handlers                                    */
@@ -298,69 +313,78 @@ ARM GAS  /tmp/ccFKpU4h.s 			page 1
  159:Src/stm32f1xx_it.c **** /* please refer to the startup file (startup_stm32f1xx.s).                    */
  160:Src/stm32f1xx_it.c **** /******************************************************************************/
  161:Src/stm32f1xx_it.c **** 
-ARM GAS  /tmp/ccFKpU4h.s 			page 6
-
-
  162:Src/stm32f1xx_it.c **** /**
  163:Src/stm32f1xx_it.c ****   * @brief This function handles TIM1 update interrupt.
  164:Src/stm32f1xx_it.c ****   */
  165:Src/stm32f1xx_it.c **** void TIM1_UP_IRQHandler(void)
  166:Src/stm32f1xx_it.c **** {
- 138              		.loc 1 166 0
- 139              		.cfi_startproc
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142              		.loc 1 166 0
- 143 0000 08B5     		push	{r3, lr}
- 144              	.LCFI0:
- 145              		.cfi_def_cfa_offset 8
- 146              		.cfi_offset 3, -8
- 147              		.cfi_offset 14, -4
+ 150              		.loc 1 166 0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 154 0000 08B5     		push	{r3, lr}
+ 155              	.LCFI0:
+ 156              		.cfi_def_cfa_offset 8
+ 157              		.cfi_offset 3, -8
+ 158              		.cfi_offset 14, -4
  167:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN TIM1_UP_IRQn 0 */
  168:Src/stm32f1xx_it.c **** 
  169:Src/stm32f1xx_it.c ****   /* USER CODE END TIM1_UP_IRQn 0 */
  170:Src/stm32f1xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 148              		.loc 1 170 0
- 149 0002 0248     		ldr	r0, .L13
- 150 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 151              	.LVL0:
- 152 0008 08BD     		pop	{r3, pc}
- 153              	.L14:
- 154 000a 00BF     		.align	2
- 155              	.L13:
- 156 000c 00000000 		.word	htim1
- 157              		.cfi_endproc
- 158              	.LFE75:
- 160              		.text
- 161              	.Letext0:
- 162              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 163              		.file 3 "/usr/include/newlib/sys/_stdint.h"
- 164              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 165              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 166              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 167              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 168              		.file 8 "Drivers/CMSIS/Include/core_cm3.h"
-ARM GAS  /tmp/ccFKpU4h.s 			page 7
+ 159              		.loc 1 170 0
+ 160 0002 0248     		ldr	r0, .L13
+ 161 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 162              	.LVL0:
+ 171:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+ 172:Src/stm32f1xx_it.c **** 
+ 173:Src/stm32f1xx_it.c ****   /* USER CODE END TIM1_UP_IRQn 1 */
+ 174:Src/stm32f1xx_it.c **** }
+ 163              		.loc 1 174 0
+ 164 0008 08BD     		pop	{r3, pc}
+ 165              	.L14:
+ 166 000a 00BF     		.align	2
+ 167              	.L13:
+ 168 000c 00000000 		.word	htim1
+ 169              		.cfi_endproc
+ 170              	.LFE77:
+ 172              		.text
+ 173              	.Letext0:
+ 174              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 175              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 176              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 177              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 178              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 179              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 180              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 181              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 182              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 7
+
+
+ 183              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 184              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 185              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 186              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_it.c
-     /tmp/ccFKpU4h.s:20     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccFKpU4h.s:38     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:43     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccFKpU4h.s:57     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:62     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/ccFKpU4h.s:76     .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:81     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccFKpU4h.s:95     .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:100    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccFKpU4h.s:114    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:119    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccFKpU4h.s:131    .text.TIM1_UP_IRQHandler:0000000000000000 $t
-     /tmp/ccFKpU4h.s:136    .text.TIM1_UP_IRQHandler:0000000000000000 TIM1_UP_IRQHandler
-     /tmp/ccFKpU4h.s:156    .text.TIM1_UP_IRQHandler:000000000000000c $d
-                     .debug_frame:0000000000000010 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:16     .text.NMI_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:23     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:37     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:44     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:58     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:65     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:79     .text.BusFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:86     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:100    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:107    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:121    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:128    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:141    .text.TIM1_UP_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:148    .text.TIM1_UP_IRQHandler:0000000000000000 TIM1_UP_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccdMQnec.s:168    .text.TIM1_UP_IRQHandler:000000000000000c $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_IRQHandler

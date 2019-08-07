@@ -68,8 +68,6 @@ public:
 	{
 		int data;
 
-
-
 		return data;
 	}
 
