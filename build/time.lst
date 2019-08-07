@@ -1,0 +1,312 @@
+ARM GAS  /tmp/ccxw6ZIU.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"time.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._ZN3ros16normalizeSecNSecERmS0_,"ax",%progbits
+  20              		.align	2
+  21              		.global	_ZN3ros16normalizeSecNSecERmS0_
+  22              		.thumb
+  23              		.thumb_func
+  25              	_ZN3ros16normalizeSecNSecERmS0_:
+  26              		.fnstart
+  27              	.LFB17:
+  28              		.file 1 "Libs/rosserial/time.cpp"
+   1:Libs/rosserial/time.cpp **** /*
+   2:Libs/rosserial/time.cpp ****  * Software License Agreement (BSD License)
+   3:Libs/rosserial/time.cpp ****  *
+   4:Libs/rosserial/time.cpp ****  * Copyright (c) 2011, Willow Garage, Inc.
+   5:Libs/rosserial/time.cpp ****  * All rights reserved.
+   6:Libs/rosserial/time.cpp ****  *
+   7:Libs/rosserial/time.cpp ****  * Redistribution and use in source and binary forms, with or without
+   8:Libs/rosserial/time.cpp ****  * modification, are permitted provided that the following conditions
+   9:Libs/rosserial/time.cpp ****  * are met:
+  10:Libs/rosserial/time.cpp ****  *
+  11:Libs/rosserial/time.cpp ****  *  * Redistributions of source code must retain the above copyright
+  12:Libs/rosserial/time.cpp ****  *    notice, this list of conditions and the following disclaimer.
+  13:Libs/rosserial/time.cpp ****  *  * Redistributions in binary form must reproduce the above
+  14:Libs/rosserial/time.cpp ****  *    copyright notice, this list of conditions and the following
+  15:Libs/rosserial/time.cpp ****  *    disclaimer in the documentation and/or other materials provided
+  16:Libs/rosserial/time.cpp ****  *    with the distribution.
+  17:Libs/rosserial/time.cpp ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
+  18:Libs/rosserial/time.cpp ****  *    contributors may be used to endorse or promote prducts derived
+  19:Libs/rosserial/time.cpp ****  *    from this software without specific prior written permission.
+  20:Libs/rosserial/time.cpp ****  *
+  21:Libs/rosserial/time.cpp ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  22:Libs/rosserial/time.cpp ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  23:Libs/rosserial/time.cpp ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  24:Libs/rosserial/time.cpp ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  25:Libs/rosserial/time.cpp ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  26:Libs/rosserial/time.cpp ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  27:Libs/rosserial/time.cpp ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  28:Libs/rosserial/time.cpp ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  29:Libs/rosserial/time.cpp ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  30:Libs/rosserial/time.cpp ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ARM GAS  /tmp/ccxw6ZIU.s 			page 2
+
+
+  31:Libs/rosserial/time.cpp ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:Libs/rosserial/time.cpp ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:Libs/rosserial/time.cpp ****  */
+  34:Libs/rosserial/time.cpp **** 
+  35:Libs/rosserial/time.cpp **** #include "ros/time.h"
+  36:Libs/rosserial/time.cpp **** 
+  37:Libs/rosserial/time.cpp **** namespace ros
+  38:Libs/rosserial/time.cpp **** {
+  39:Libs/rosserial/time.cpp **** void normalizeSecNSec(uint32_t& sec, uint32_t& nsec)
+  40:Libs/rosserial/time.cpp **** {
+  29              		.loc 1 40 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              	.LVL0:
+  35 0000 30B4     		push	{r4, r5}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 5, -4
+  41:Libs/rosserial/time.cpp ****   uint32_t nsec_part = nsec % 1000000000UL;
+  40              		.loc 1 41 0
+  41 0002 0C68     		ldr	r4, [r1]
+  42 0004 630A     		lsrs	r3, r4, #9
+  43 0006 074A     		ldr	r2, .L3
+  44 0008 A2FB0323 		umull	r2, r3, r2, r3
+  45 000c DA09     		lsrs	r2, r3, #7
+  46 000e 064D     		ldr	r5, .L3+4
+  47 0010 05FB1242 		mls	r2, r5, r2, r4
+  48              	.LVL1:
+  42:Libs/rosserial/time.cpp ****   uint32_t sec_part = nsec / 1000000000UL;
+  43:Libs/rosserial/time.cpp ****   sec += sec_part;
+  49              		.loc 1 43 0
+  50 0014 0468     		ldr	r4, [r0]
+  51 0016 04EBD313 		add	r3, r4, r3, lsr #7
+  52              	.LVL2:
+  53 001a 0360     		str	r3, [r0]
+  54              	.LVL3:
+  44:Libs/rosserial/time.cpp ****   nsec = nsec_part;
+  55              		.loc 1 44 0
+  56 001c 0A60     		str	r2, [r1]
+  45:Libs/rosserial/time.cpp **** }
+  57              		.loc 1 45 0
+  58 001e 30BC     		pop	{r4, r5}
+  59              	.LCFI1:
+  60              		.cfi_restore 5
+  61              		.cfi_restore 4
+  62              		.cfi_def_cfa_offset 0
+  63 0020 7047     		bx	lr
+  64              	.L4:
+  65 0022 00BF     		.align	2
+  66              	.L3:
+  67 0024 834B0400 		.word	281475
+  68 0028 00CA9A3B 		.word	1000000000
+  69              		.cfi_endproc
+  70              	.LFE17:
+ARM GAS  /tmp/ccxw6ZIU.s 			page 3
+
+
+  71              		.cantunwind
+  72              		.fnend
+  74              		.section	.text._ZN3ros4Time8fromNSecEl,"ax",%progbits
+  75              		.align	2
+  76              		.global	_ZN3ros4Time8fromNSecEl
+  77              		.thumb
+  78              		.thumb_func
+  80              	_ZN3ros4Time8fromNSecEl:
+  81              		.fnstart
+  82              	.LFB18:
+  46:Libs/rosserial/time.cpp **** 
+  47:Libs/rosserial/time.cpp **** Time& Time::fromNSec(int32_t t)
+  48:Libs/rosserial/time.cpp **** {
+  83              		.loc 1 48 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              	.LVL4:
+  88 0000 10B5     		push	{r4, lr}
+  89              	.LCFI2:
+  90              		.cfi_def_cfa_offset 8
+  91              		.cfi_offset 4, -8
+  92              		.cfi_offset 14, -4
+  93 0002 0446     		mov	r4, r0
+  49:Libs/rosserial/time.cpp ****   sec = t / 1000000000;
+  94              		.loc 1 49 0
+  95 0004 084B     		ldr	r3, .L7
+  96 0006 83FB0132 		smull	r3, r2, r3, r1
+  97 000a CB17     		asrs	r3, r1, #31
+  98 000c C3EB2273 		rsb	r3, r3, r2, asr #28
+  99 0010 0360     		str	r3, [r0]
+  50:Libs/rosserial/time.cpp ****   nsec = t % 1000000000;
+ 100              		.loc 1 50 0
+ 101 0012 064A     		ldr	r2, .L7+4
+ 102 0014 02FB1312 		mls	r2, r2, r3, r1
+ 103 0018 0146     		mov	r1, r0
+ 104              	.LVL5:
+ 105 001a 41F8042F 		str	r2, [r1, #4]!
+  51:Libs/rosserial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 106              		.loc 1 51 0
+ 107 001e FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 108              	.LVL6:
+  52:Libs/rosserial/time.cpp ****   return *this;
+  53:Libs/rosserial/time.cpp **** }
+ 109              		.loc 1 53 0
+ 110 0022 2046     		mov	r0, r4
+ 111 0024 10BD     		pop	{r4, pc}
+ 112              	.LVL7:
+ 113              	.L8:
+ 114 0026 00BF     		.align	2
+ 115              	.L7:
+ 116 0028 A12FB844 		.word	1152921505
+ 117 002c 00CA9A3B 		.word	1000000000
+ 118              		.cfi_endproc
+ 119              	.LFE18:
+ 120              		.cantunwind
+ 121              		.fnend
+ARM GAS  /tmp/ccxw6ZIU.s 			page 4
+
+
+ 123              		.section	.text._ZN3ros4TimepLERKNS_8DurationE,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	_ZN3ros4TimepLERKNS_8DurationE
+ 126              		.thumb
+ 127              		.thumb_func
+ 129              	_ZN3ros4TimepLERKNS_8DurationE:
+ 130              		.fnstart
+ 131              	.LFB19:
+  54:Libs/rosserial/time.cpp **** 
+  55:Libs/rosserial/time.cpp **** Time& Time::operator +=(const Duration &rhs)
+  56:Libs/rosserial/time.cpp **** {
+ 132              		.loc 1 56 0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              	.LVL8:
+ 137 0000 10B5     		push	{r4, lr}
+ 138              	.LCFI3:
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 4, -8
+ 141              		.cfi_offset 14, -4
+ 142 0002 0446     		mov	r4, r0
+  57:Libs/rosserial/time.cpp ****   sec += rhs.sec;
+ 143              		.loc 1 57 0
+ 144 0004 0B68     		ldr	r3, [r1]
+ 145 0006 0268     		ldr	r2, [r0]
+ 146 0008 1344     		add	r3, r3, r2
+ 147 000a 0360     		str	r3, [r0]
+  58:Libs/rosserial/time.cpp ****   nsec += rhs.nsec;
+ 148              		.loc 1 58 0
+ 149 000c 4B68     		ldr	r3, [r1, #4]
+ 150 000e 4268     		ldr	r2, [r0, #4]
+ 151 0010 1344     		add	r3, r3, r2
+ 152 0012 0146     		mov	r1, r0
+ 153              	.LVL9:
+ 154 0014 41F8043F 		str	r3, [r1, #4]!
+  59:Libs/rosserial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 155              		.loc 1 59 0
+ 156 0018 FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 157              	.LVL10:
+  60:Libs/rosserial/time.cpp ****   return *this;
+  61:Libs/rosserial/time.cpp **** }
+ 158              		.loc 1 61 0
+ 159 001c 2046     		mov	r0, r4
+ 160 001e 10BD     		pop	{r4, pc}
+ 161              		.cfi_endproc
+ 162              	.LFE19:
+ 163              		.cantunwind
+ 164              		.fnend
+ 166              		.section	.text._ZN3ros4TimemIERKNS_8DurationE,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	_ZN3ros4TimemIERKNS_8DurationE
+ 169              		.thumb
+ 170              		.thumb_func
+ 172              	_ZN3ros4TimemIERKNS_8DurationE:
+ 173              		.fnstart
+ 174              	.LFB20:
+ARM GAS  /tmp/ccxw6ZIU.s 			page 5
+
+
+  62:Libs/rosserial/time.cpp **** 
+  63:Libs/rosserial/time.cpp **** Time& Time::operator -=(const Duration &rhs)
+  64:Libs/rosserial/time.cpp **** {
+ 175              		.loc 1 64 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              	.LVL11:
+ 180 0000 10B5     		push	{r4, lr}
+ 181              	.LCFI4:
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 4, -8
+ 184              		.cfi_offset 14, -4
+ 185 0002 0446     		mov	r4, r0
+  65:Libs/rosserial/time.cpp ****   sec += -rhs.sec;
+ 186              		.loc 1 65 0
+ 187 0004 0A68     		ldr	r2, [r1]
+ 188 0006 0368     		ldr	r3, [r0]
+ 189 0008 9B1A     		subs	r3, r3, r2
+ 190 000a 0360     		str	r3, [r0]
+  66:Libs/rosserial/time.cpp ****   nsec += -rhs.nsec;
+ 191              		.loc 1 66 0
+ 192 000c 4A68     		ldr	r2, [r1, #4]
+ 193 000e 4368     		ldr	r3, [r0, #4]
+ 194 0010 9B1A     		subs	r3, r3, r2
+ 195 0012 0146     		mov	r1, r0
+ 196              	.LVL12:
+ 197 0014 41F8043F 		str	r3, [r1, #4]!
+  67:Libs/rosserial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 198              		.loc 1 67 0
+ 199 0018 FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 200              	.LVL13:
+  68:Libs/rosserial/time.cpp ****   return *this;
+  69:Libs/rosserial/time.cpp **** }
+ 201              		.loc 1 69 0
+ 202 001c 2046     		mov	r0, r4
+ 203 001e 10BD     		pop	{r4, pc}
+ 204              		.cfi_endproc
+ 205              	.LFE20:
+ 206              		.cantunwind
+ 207              		.fnend
+ 209              		.text
+ 210              	.Letext0:
+ 211              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 212              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 213              		.file 4 "Libs/rosserial/ros/duration.h"
+ 214              		.file 5 "Libs/rosserial/ros/time.h"
+ARM GAS  /tmp/ccxw6ZIU.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 time.cpp
+     /tmp/ccxw6ZIU.s:20     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 $t
+     /tmp/ccxw6ZIU.s:25     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 _ZN3ros16normalizeSecNSecERmS0_
+     /tmp/ccxw6ZIU.s:67     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000024 $d
+.ARM.exidx.text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 $d
+     /tmp/ccxw6ZIU.s:75     .text._ZN3ros4Time8fromNSecEl:0000000000000000 $t
+     /tmp/ccxw6ZIU.s:80     .text._ZN3ros4Time8fromNSecEl:0000000000000000 _ZN3ros4Time8fromNSecEl
+     /tmp/ccxw6ZIU.s:116    .text._ZN3ros4Time8fromNSecEl:0000000000000028 $d
+.ARM.exidx.text._ZN3ros4Time8fromNSecEl:0000000000000000 $d
+     /tmp/ccxw6ZIU.s:124    .text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 $t
+     /tmp/ccxw6ZIU.s:129    .text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 _ZN3ros4TimepLERKNS_8DurationE
+.ARM.exidx.text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 $d
+     /tmp/ccxw6ZIU.s:167    .text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 $t
+     /tmp/ccxw6ZIU.s:172    .text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 _ZN3ros4TimemIERKNS_8DurationE
+.ARM.exidx.text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS
